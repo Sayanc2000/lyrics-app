@@ -1,7 +1,7 @@
 import 'package:class_proj/Results.dart';
 import 'package:class_proj/apicalls/SearchCall.dart';
-import 'package:class_proj/apicalls/SongCall.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lyrics App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -41,6 +42,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lyrics Search"),
+          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {
@@ -94,7 +96,9 @@ class LyricsSearch extends SearchDelegate {
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (loading) {
             return Center(
-              child: Text("Loading..."),
+              child: SpinKitFadingGrid(
+                color: Theme.of(context).primaryColor,
+              ),
             );
           } else {
             return ListView.builder(

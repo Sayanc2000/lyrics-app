@@ -1,5 +1,6 @@
 import 'package:class_proj/apicalls/SongCall.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Results extends StatefulWidget {
@@ -27,7 +28,6 @@ class _ResultsState extends State<Results> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLyrics();
   }
@@ -37,10 +37,13 @@ class _ResultsState extends State<Results> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lyrics"),
+          centerTitle: true,
         ),
         body: loading
             ? Center(
-                child: Text("loading..."),
+                child: SpinKitFadingGrid(
+                  color: Theme.of(context).primaryColor,
+                ),
               )
             : WebView(
                 initialUrl: data['url'],
