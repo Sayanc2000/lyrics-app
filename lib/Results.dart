@@ -1,5 +1,6 @@
 import 'package:class_proj/apicalls/SongCall.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Results extends StatefulWidget {
   final int id;
@@ -41,8 +42,8 @@ class _ResultsState extends State<Results> {
             ? Center(
                 child: Text("loading..."),
               )
-            : Center(
-                child: Text(id.toString()),
+            : WebView(
+                initialUrl: data['url'],
               ));
   }
 }

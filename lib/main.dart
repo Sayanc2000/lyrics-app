@@ -67,7 +67,6 @@ class LyricsSearch extends SearchDelegate {
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    // TODO: implement buildActions
     return [
       IconButton(
         icon: Icon(Icons.clear),
@@ -80,7 +79,6 @@ class LyricsSearch extends SearchDelegate {
 
   @override
   Widget buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
       icon: Icon(Icons.arrow_back),
       onPressed: () {
@@ -91,7 +89,6 @@ class LyricsSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     return FutureBuilder(
         future: getCall(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -137,7 +134,6 @@ class LyricsSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
     return Container();
   }
 }
